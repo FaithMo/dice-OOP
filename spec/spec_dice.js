@@ -13,8 +13,13 @@ describe("Throwing a dice", () => {
 });
 
 describe("Handle errors", () => {
-    it("should check for negative propability", () => {
-        let dieDodgy6 = new Die(6);
+
+  // beforeAll(function (){
+
+  //   var dieDodgy6 = new Die(6);
+  // });
+
+    it("should check for negative probabilities", () => {
         try {dieDodgy6.setProbabilities([-1, 1, 1, 1, 1, 2]);
         }catch (e) {
           expect(e).toBeTruthy("negative probabilities not allowed");
@@ -35,13 +40,14 @@ describe("Handle errors", () => {
           expect(e).toBeTruthy("only integer values allowed");
         }
     });
+
 })
 
 describe("Dice factory", () => {
-    it("should only make one kind of die", () => {
-      let factory20 = new DiceFactory(20);
-      let die20 = factory20.makeDice();
-      let anotherDie = factory20.makeDice();
-      expect(die20).toBe(anotherDie);
+    it("should only make one kind of a fair die", () => {
+      let factory20 = new DiceFactory(6);
+      let die20 = factory20.makeDie();
+      //let anotherDie = factory20.makeDie();
+      expect(die20).toEqual([1,1,1,1,1,1]);
     });
 });

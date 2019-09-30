@@ -1,8 +1,9 @@
 //let Dice = require("./dice"); //uncoment this before unit testing files singularly without jasmine
 
 class DiceFactory {
-    constructor(sides){
+    constructor(sides,probabilities){
         this.sides = sides;
+        this.probabilities = probabilities;
     }
     makeDie(){
 
@@ -10,9 +11,10 @@ class DiceFactory {
         for(var i = 0; i < this.sides; i++) {
             this.probabilities.push(parseInt(1));
         }
-        return this.sides;
+        return this.probabilities;
+        //return this.sides;
     }
 }
 
-var createDice = new DiceFactory(20);
+var createDice = new DiceFactory(6);
 console.log(createDice.makeDie());
