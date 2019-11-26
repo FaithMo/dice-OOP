@@ -1,20 +1,19 @@
-//let Dice = require("./dice"); //uncoment this before unit testing files singularly without jasmine
+//let Die = require("./dice"); //uncoment this before unit testing files singularly without jasmine
 
 class DiceFactory {
-    constructor(sides,probabilities){
-        this.sides = sides;
-        this.probabilities = probabilities;
-    }
+
+    constructor(dice) {
+        this.dice = new Die(dice);
+        if (arguments.length == 2) {
+          this.dice = new Die(dice, arguments[1]);
+        }
+      }
+    
     makeDie(){
 
-        this.probabilities = [];
-        for(var i = 0; i < this.sides; i++) {
-            this.probabilities.push(parseInt(1));
-        }
-        return this.probabilities;
+        return this.dice;
         //return this.sides;
     }
 }
 
-var createDice = new DiceFactory(6);
-console.log(createDice.makeDie());
+
