@@ -36,7 +36,7 @@ class Die {
     roll(){
         //fair die
         if(this.sides >= 1){ //side should be an integer greater than 1.
-            return Math.round(Math.random() * this.sides) + 1;
+            return Math.floor(Math.random() * this.sides + 1);
         }
     }
     
@@ -65,7 +65,8 @@ class Die {
 }
 
 
-// let die6 = new Die(3);
+let die6 = new Die(3);
+console.log(die6.roll());
 // die6.setProbabilities([1,1,1]);
 // die6.update();
 
